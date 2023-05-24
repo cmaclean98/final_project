@@ -66,9 +66,10 @@ map.on('load', function () {
   })
 
   map.on('click', 'line-my-lines', (e) => {
+    const feature = e.features[0]
     new mapboxgl.Popup()
-      .setLngLat(e.geometry.coordinates)
-      .setHTML(e.features[0].properties.Vehicle)
+      .setLngLat(feature.geometry.coordinates)
+      .setHTML(feature.properties.Zone)
       .addTo(map);
   });
 
@@ -97,9 +98,10 @@ map.on('load', function () {
   }),
 
     map.on('click', 'circle-my-points', (e) => {
+      const feature = e.features[0]
       new mapboxgl.Popup()
-        .setLngLat(e.coordinates)
-        .setHTML(e.features[0].properties.Name)
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML(feature.properties.Name)
         .addTo(map);
     });
 
@@ -110,34 +112,31 @@ map.on('load', function () {
 
   // Change it back to a pointer when it leaves.
   map.on('mouseleave', 'my-points', () => {
-    map.getCanvas().style.cursor = '';
-
-    //format legend
-    const legendItems = [
-      { name: 'Parking Lot', color: '#F5D42C' },
-      { name: 'Parking Garage', color: '#F5722C' },
-      { name: 'Street Parking', color: '#A3F51E' },
-    ];
-
-//enable fly to
-$('#fly-to-fidi').on('click', function () {
-  map.flyTo({
-    center: [-74.00639575701194, 40.708072904009235],
-    zoom: 16.5
+    map.getCanvas().style.cursor = ''
   })
-})
-legendItems.forEach(item => {
-  const legendItem = $('<div>').addClass('legend-item');
-  const legendColor = $('<div>').addClass('legend-color').css('background-color', item.color);
-  const legendText = $('<span>').text(item.name);
-  legendItem.append(legendColor).append(legendText);
-   $('#legend').append(legendItem);
+
+  //enable fly to
+  $('#fly-to-fidi').on('click', function () {
+    map.flyTo({
+      center: [-74.00639575701194, 40.708072904009235],
+      zoom: 16.5
+    })
+  })
+  //format legend
+  const legendItems = [
+    { name: 'Parking Lot', color: '#F5D42C' },
+    { name: 'Parking Garage', color: '#F5722C' },
+    { name: 'Street Parking', color: '#A3F51E' },
+  ];
+
+  legendItems.forEach(item => {
+    const legendItem = $('<div>').addClass('legend-item');
+    const legendColor = $('<div>').addClass('legend-color').css('background-color', item.color);
+    const legendText = $('<span>').text(item.name);
+    legendItem.append(legendColor).append(legendText);
+    $('#legend').append(legendItem);
+
   });
   const legendControl = new mapboxgl.Control({ element: $('#legend')[0] });
   map.addControl(legendControl);
-  });
 })
-
-
-
-
