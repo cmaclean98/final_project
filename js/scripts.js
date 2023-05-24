@@ -119,18 +119,6 @@ map.on('load', function () {
       { name: 'Street Parking', color: '#A3F51E' },
     ];
 
-    legendItems.forEach(item => {
-      const legendItem = $('<div>').addClass('legend-item');
-      const legendColor = $('<div>').addClass('legend-color').css('background-color', item.color);
-      const legendText = $('<span>').text(item.name);
-      legendItem.append(legendColor).append(legendText);
-      $('#legend').append(legendItem);
-    });
-    const legendControl = new mapboxgl.Control({ element: $('#legend')[0] });
-    map.addControl(legendControl);
-  });
-})
-
 //enable fly to
 $('#fly-to-fidi').on('click', function () {
   map.flyTo({
@@ -138,7 +126,17 @@ $('#fly-to-fidi').on('click', function () {
     zoom: 16.5
   })
 })
-
+legendItems.forEach(item => {
+  const legendItem = $('<div>').addClass('legend-item');
+  const legendColor = $('<div>').addClass('legend-color').css('background-color', item.color);
+  const legendText = $('<span>').text(item.name);
+  legendItem.append(legendColor).append(legendText);
+   $('#legend').append(legendItem);
+  });
+  const legendControl = new mapboxgl.Control({ element: $('#legend')[0] });
+  map.addControl(legendControl);
+  });
+})
 
 
 
