@@ -1,0 +1,68 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Where is parking occupying possible housing in NYC?</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+
+</head>
+
+
+<body>
+
+    <div class="sidebar">
+
+        <div class="title">
+            <h2>Where is parking occupying potential housing development?</h2>
+        </div>
+
+        <div class="description">
+            It is a uncontested truth that land within the five boroughs of NYC is precious.
+            <p>
+                However, how much of this land is dedicated to parking lots? <b>According to the New York City
+                    Economic Development Corporation, only 22% of New Yorkers own cars. And yet, according to <i>Too
+                        Many Cars</i>
+                    NYC, there are 5,375,612 parking spaces across the five boroughs. That's over 480,000,000 square
+                    feet of just curbside parking based on the standard 9x18 spot size.</b>
+            </p>
+            <p>
+                With vast improvements and access to public transit and a growing housing crisis, the city must
+                prioritize housing development. As public officials consider strategies to meet growing housing
+                demand through a variety of housing typologies and funding sources, it is imperative to examine
+                the areas that contain an exhorbinant amount of parking. This map presents a case study of a few
+                blocks of Manhattan's central business district, bound by Pearl Street to the East, William
+                Street to the West, Fulton Street to the North, and Maiden Lane to the South. According to NYC DCP
+                street widths,
+                the case study zone represents roughly 4500 square feet. In the spirit of the Peterson Rich Office
+                <i>9x18</i> project, just 2 parking spaces can equal a micro unit and 2.5 can equate to a 1-bedroom
+                apartment. There is ample opportunity to build housing in this central business hub.
+                The area is transit-rich-situated directly adjacent to a plethora of subway stops (namely Wall Street,
+                Fulton Street Broad Street, and Cortlandt), bus routes, and Citi Bike stations.
+            </p>
+            <h3>Zoom in to the case study area to see a visual depiction of parking available for personal and
+                commercial vehicles in the area.</h3>
+
+        </div>
+        <p>
+            <button id="fly-to-fidi" class="button-18" role="button">Fly to FiDi</button>
+        </p>
+    </div>
+
+<div id="legend"></div>
+        </div>
+     </div>
+
+    <div id="map"></div>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="data/my-points.js"></script>
+    <script src="data/my-lines.js"></script>
+    <script src="data/my-polygons.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
